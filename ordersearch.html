@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title> The pizzeria - taste the flavor from Italy! </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet"  href="style.css">
+    <style>
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+		}
+</style>
+</head>
+<body>
+<div id='wrapping'>
+  <header>
+    <div class="logo">
+      <img src="header.png">
+    </div>
+    <div id="menuButton">
+			<a href="menu.php">Menu</a>
+	</div>
+	<div id="login">
+			<?php
+				if ($_SESSION['valid_user'] == null)
+			{
+			  echo "<a  href='login.php'>Log in here</a><br/>";
+			  echo "<a href='signup.html'>New User?</a>";
+			}
+		   ?>
+
+    <?php
+      if ($_SESSION['valid_user'] != null)
+      {
+        echo "<a href='profile.php'>Modify details, ".$_SESSION['valid_user']. "</a><br />";
+		echo '<a href="logout.php">Log out</a><br/>';
+      }
+     ?>
+
+	</div>
+    </header>
+    <div class="center">
+    <h1 text-align="center">Order Tracker</h1>    
+    <form action="orderstatus.php" method="post">
+        <p><input type="number" name="id" placeholder="Enter Order ID"> </p>
+        <input type="submit" value="Search">
+    </form>
+    </div>
+    
+   <footer>
+      <div id="left">
+          <img src='header.png'>
+          <h3 style="color: #FAC043">The pizzeria Singapore</h3>
+
+          <h5>&copy;The pizzeria Singapore Pte Ltd</h5>
+        </div>
+      <div id='right'>
+          <p>
+            <h2>Contact us:</h2>
+            <h3 style="color:#F39D34">8941 5078</h2>
+            <a href="mailto:pizzeria@sg.com" style="color:#F39D34">pizzeria@sg.com</a></p>
+          <p><h3>We accept: </h3>
+          <h4>Credit cards & Cash on delvery</h4>
+          <h3 style="color: #F39D34">Check our lastest promotions on home page!</h3></p>
+        </div>
+   </footer>
+   </div>
+</body>
+</html>
